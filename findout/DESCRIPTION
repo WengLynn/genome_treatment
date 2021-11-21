@@ -1,0 +1,10 @@
+Package: findout
+Type: Package
+Title: Treat Aligned genome to get detail sequence information.
+Version: 0.1.0
+Author: Shenghui Weng
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: If you have an large aligned genome sequence to find out their detail information such as SNP, INDEL, etc., I will recommend you to use it.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
