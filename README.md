@@ -23,12 +23,12 @@ Now the available package is:
       1.6 findout_mapacross (coming soon)
       Description: When you try to map your INDEL or SNP from SARS to SARS2, I will recommend you to use it.
       
-      ..ongoing..
+   ongoing..
        
   2.  shorten (This is developed NOT for SARS-CoV-2.)
       2.1 shorten_site
       Description: When you try to remove your conserved sites to reduce sequence length for further analysis such as calling adaptive mutations, I will recommend you to use it.
   
-     ..ongoing..
+   ongoing..
      
 Slow Down and Good Night
