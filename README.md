@@ -7,8 +7,10 @@ To acess them, you can try
  1. findout (This is developed for SARS-CoV-2.)
  
  Now the available package is: 
-      1.1 findout_mutation (depending on tidyr, stringr)
-      Description: When you try to call INDEL or SNP from a very large and already aligned geonome sequences on your local system, I will recommend you to use it.
+ 
+   1.1 findout_mutation (depending on tidyr, stringr)
+      
+   Description: When you try to call INDEL or SNP from a very large and already aligned geonome sequences on your local system, I will recommend you to use it.
       To use it try: 
        
       findout_mutation(filename,key_pattern)
