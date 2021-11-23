@@ -32,6 +32,6 @@ To acess them, you can try
       2.1 shorten_site
       Description: When you try to remove your conserved sites to reduce sequence length for further analysis such as calling adaptive mutations, I will recommend you to use it.
   
-   ongoing..
+  Weng is ongoing..
      
 Slow Down and Good Night
