@@ -6,9 +6,11 @@ To acess them, you can try
    
      install_github("wuaipinglab/genome_treatment/findout")
 
-# 1. findout (This is developed for SARS-CoV-2.)
+# 1. findout 
+
+This is developed for SARS-CoV-2.
  
- Now the available package is: 
+Now the available package is: 
  
 #   1.1 findout_mutation (depending on tidyr, stringr)
       
