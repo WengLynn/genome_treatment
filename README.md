@@ -4,6 +4,7 @@ This is a R pacakge including some tools to treat aligned genome sequence.
 
 To acess them, you can try 
    
+     library(devtools)
      install_github("wuaipinglab/genome_treatment/findout")
 
 # 1. findout 
