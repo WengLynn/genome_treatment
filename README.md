@@ -15,4 +15,8 @@ To acess them, you can try
        
       findout_mutation(filename,key_pattern)
      
+filename: The file name of your aligned sequences.
+
+key_pattern: An unique pattern in your refference sequence in the above aligned file, such as a EPI id.
+
 Good Luck
