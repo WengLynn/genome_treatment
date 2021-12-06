@@ -6,6 +6,8 @@ To acess them, you can try
    
      library(devtools)
      install_github("wuaipinglab/genome_treatment/findout")
+     library(findout)
+     ?findout::findout_mutation()
 
 # 1. findout 
 
