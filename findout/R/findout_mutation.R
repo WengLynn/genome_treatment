@@ -1,4 +1,3 @@
-
 findout_mutation <- function(filename,key_pattern ) {
   # coln -------------------------------------------------------------------
   library(tidyr)
@@ -21,12 +20,11 @@ findout_mutation <- function(filename,key_pattern ) {
     coln = append(coln,p,(insertpoi[i]-1))
   }
   loc = coln
-  loc[1:length(mmref)] = 1
   loc[which(mmref == "-")]=0
-  loc = cumsum(loc)
-  loc[which(mmref == "-")]=0
-  # loop --------------------------------------------------------------------
-  write.table(t(as.data.frame(c("Type","loc_from","loc_to","NNfrom","NNto","seqname"))),"indel_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
+  loc = as.numeric(loc)
+--------------------------------------
+  write.table(t(as.data.frame(c("Type","loc_from","loc_to","NNfrom","NNto","seqname"))),"indel_ins.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
+  write.table(t(as.data.frame(c("Type","loc_from","loc_to","NNfrom","NNto","seqname"))),"indel_del.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
   write.table(t(as.data.frame(c("Type","loc_from","loc_to","NNfrom","NNto","seqname"))),"SNP_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
   lineCnt = 0
   con <- file(filename, "r")
@@ -75,7 +73,7 @@ findout_mutation <- function(filename,key_pattern ) {
             NNe =c(NNe, paste(mm_out[loc_s[del_ty]:loc_e[del_ty]],collapse = ""))
           }
           indel_table = cbind("del",loc_s,loc_e,NNf,NNe,name)
-          write.table(indel_table,"indel_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
+          write.table(indel_table,"indel_del.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
           loc_del=0
           }
           if(length(mm_del)==1){
@@ -85,29 +83,27 @@ findout_mutation <- function(filename,key_pattern ) {
             NNf =mmref_withoutgap[loc_del]
             NNe =mm_out[loc_del]
             indel_table = cbind("del",loc_s,loc_e,NNf,NNe,name)
-            write.table(indel_table,"indel_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
+            write.table(indel_table,"indel_del.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
             loc_del=0
           }
-
         }
-
 # insertion  --------------------------------------------------------------
 
         if(length(mm_ins)>0){
           indel_table=""
-          mm_out = mm2[-withoutgap]
-          loc_del = loc[mm_ins]
-          loc_len = length(loc_del)
+            loc_len = length(mm_ins)
           if (length(mm_ins)!=1){
-            loc_s = c(loc_del[1],loc_del[1+which(loc_del[2:loc_len]-loc_del[1:(loc_len-1)]!=1)])
-            loc_e = c(loc_del[which(loc_del[2:loc_len]-loc_del[1:(loc_len-1)]!=1)],loc_del[loc_len])
+            loc_s = c(mm_ins[1],mm_ins[1+which(mm_ins[2:loc_len]-mm_ins[1:(loc_len-1)]!=1)])
+            loc_e = c(mm_ins[which(mm_ins[2:loc_len]-mm_ins[1:(loc_len-1)]!=1)],mm_ins[loc_len])
             NNf  = NNe = c()
             for (del_ty in 1:length(loc_s)) {
-              NNf =c(NNf, paste(mmref_withoutgap[loc_s[del_ty]:loc_e[del_ty]],collapse = ""))
-              NNe =c(NNe, paste(mm_out[loc_s[del_ty]:loc_e[del_ty]],collapse = ""))
+              NNf =c(NNf, paste(mmref[loc_s[del_ty]:loc_e[del_ty]],collapse = ""))
+              NNe =c(NNe, paste(mm2[loc_s[del_ty]:loc_e[del_ty]],collapse = ""))
             }
+            loc_s = coln[loc_s]
+            loc_e = coln[loc_e]
             indel_table = cbind("ins",loc_s,loc_e,NNf,NNe,name)
-            write.table(indel_table,"indel_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
+            write.table(indel_table,"indel_ins.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
             loc_del=0
           }
           if(length(mm_ins)==1){
@@ -117,15 +113,11 @@ findout_mutation <- function(filename,key_pattern ) {
             NNf =mmref_withoutgap[loc_del]
             NNe =mm_out[loc_del]
             indel_table = cbind("ins",loc_s,loc_e,NNf,NNe,name)
-            write.table(indel_table,"indel_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
+            write.table(indel_table,"indel_ins.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
             loc_del=0
           }
-
         }
-
 # SNP ---------------------------------------------------------------------
-
-
         if(length(mm_SNP)>0){
           write.table(cbind("SNP",loc[mm_SNP],mmref[mm_SNP],mm2[mm_SNP],name),"SNP_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
         }
@@ -133,7 +125,5 @@ findout_mutation <- function(filename,key_pattern ) {
     }
   }
   close(con)
-
-
-
 }
+
