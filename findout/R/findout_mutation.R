@@ -106,7 +106,7 @@ findout_mutation <- function(filename,key_pattern ) {
               NNf =c(NNf, paste(mmref_withoutgap[loc_s[del_ty]:loc_e[del_ty]],collapse = ""))
               NNe =c(NNe, paste(mm_out[loc_s[del_ty]:loc_e[del_ty]],collapse = ""))
             }
-            inindel_table = cbind("ins",loc_s,loc_e,NNf,NNe,name)
+            indel_table = cbind("ins",loc_s,loc_e,NNf,NNe,name)
             write.table(indel_table,"indel_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
             loc_del=0
           }
