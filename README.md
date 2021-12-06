@@ -29,3 +29,5 @@ filename: The file name of your aligned sequences.
 key_pattern: An unique pattern in your refference sequence in the above aligned file, such as a EPI id.
 
 # Good Luck
+
+In SARS-CoV-2 case, we can findout indel from more than 5 million sequences with 4 cores in 22 hours.
