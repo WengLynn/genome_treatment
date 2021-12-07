@@ -104,17 +104,15 @@ findout_mutation <- function(filename,key_pattern ) {
             loc_e = coln[loc_e]
             indel_table = cbind("ins",loc_s,loc_e,NNf,NNe,name)
             write.table(indel_table,"indel_ins.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
-            loc_del=0
           }
           if(length(mm_ins)==1){
-            loc_s = loc_del
-            loc_e = loc_del
+              loc_s = coln[mm_ins[1]]
+            loc_e = coln[mm_ins[1]]
             NNf  = NNe = c()
-            NNf =mmref_withoutgap[loc_del]
-            NNe =mm_out[loc_del]
+            NNf =mmref[mm_ins[1]]
+            NNe =mm2[mm_ins[1]]
             indel_table = cbind("ins",loc_s,loc_e,NNf,NNe,name)
             write.table(indel_table,"indel_ins.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
-            loc_del=0
           }
         }
 # SNP ---------------------------------------------------------------------
