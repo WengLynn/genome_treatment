@@ -30,4 +30,4 @@ key_pattern: An unique pattern in your refference sequence in the above aligned 
 
 # Good Luck
 
-In SARS-CoV-2 case, we can findout indel from more than 5 million sequences with 4 cores in 22 hours.
+
