@@ -22,10 +22,10 @@ findout_mutation <- function(filename,key_pattern ) {
   loc = coln
   loc[which(mmref == "-")]=0
   loc = as.numeric(loc)
---------------------------------------
+# --------------------------------------
   write.table(t(as.data.frame(c("Type","loc_from","loc_to","NNfrom","NNto","seqname"))),"indel_ins.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
   write.table(t(as.data.frame(c("Type","loc_from","loc_to","NNfrom","NNto","seqname"))),"indel_del.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
-  write.table(t(as.data.frame(c("Type","loc_from","loc_to","NNfrom","NNto","seqname"))),"SNP_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
+  write.table(t(as.data.frame(c("Type","loc","NNfrom","NNto","seqname"))),"SNP_info.txt",col.names = F,row.names = F,sep = "\t",quote = F,append = T)
   lineCnt = 0
   con <- file(filename, "r")
   while (1) {
