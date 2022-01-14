@@ -28,6 +28,8 @@ filename: The file name of your aligned sequences.
 
 key_pattern: An unique pattern in your refference sequence in the above aligned file, such as a EPI id.
 
+As a quality control, sequences will be removed with more than 15 "N" or 50 other degenerate bases like "R".
+
 # Good Luck
 
 
