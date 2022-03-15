@@ -1,4 +1,4 @@
-# genome_treatment: Various Variant Identifier(VVI)
+# genome_treatment: Virus Variant Identifier(VVI)
 
 This is a R pacakge including some tools to treat aligned genome sequence.
 
