@@ -8,6 +8,7 @@ To acess them, you can try
      install_github("wuaipinglab/genome_treatment/findout")
      library(findout)
      ?findout::findout_mutation()
+     ?findout::findout_NTtoAA()
 
 # 1. findout 
 
@@ -30,13 +31,13 @@ key_pattern: An unique pattern in your refference sequence in the above aligned 
 
 As a quality control, sequences will be removed with more than 15 "N" or 50 other degenerate bases like "R".
 
-#    1.2 NTtoAA (depending on ape, dplyr)
+#    1.2 findout_NTtoAA (depending on ape, dplyr)
 
      Description: If you have la list of nucleotide mutation and want to figure out which protein located on or whether lead to a non-synonymous mutation or not, I would like to introduce this package to you.
      
      To use it try: 
        
-      NTtoAA(Seq_fasta, ORF_table_file, SNP_table_file)
+      findout_NTtoAA(Seq_fasta, ORF_table_file, SNP_table_file)
       
 # Parameters:
 
