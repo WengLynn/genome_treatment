@@ -1,4 +1,4 @@
-findout_mutation_NTtoAA <- function(Seq_fasta ,ORF_table_file,SNP_table_file,ORFStartCol = "Start",ORFEndCol = "End",ORFGeneCol="Gene",SNP = "SNP"){
+findout_NTtoAA <- function(Seq_fasta ,ORF_table_file,SNP_table_file,ORFStartCol = "Start",ORFEndCol = "End",ORFGeneCol="Gene",SNP = "SNP"){
   ORF_table = read.csv(`ORF_table_file`)
   SNP_table = read.csv(`SNP_table_file`)
   library(ape)
